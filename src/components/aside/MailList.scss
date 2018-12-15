@@ -1,0 +1,29 @@
+@import '../../styles/accessories';
+
+.mail-list{
+    .list{
+        list-style: none;
+        .item{
+            display: block;
+        }
+        .mail-item{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: $border;
+            padding: 1em;
+            .mail-content{
+                display: flex;
+                flex-direction: column;
+                .title{
+                    font-weight: bold;
+                    margin-bottom: 0.5em;
+                }
+            }
+            .mail-aside{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import '../../styles/colors';
+@import '../../styles/accessories';
+
+.detail{
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: $border;
+        height: 45px;
+        padding: 1em;
+        padding-left: 2em;
+        .button{
+            border: none;
+            border-radius: $button-border-radius;
+            background-color: transparent;
+            font-size: 11px;
+            height: 24px;
+            padding: 0 0.5em;
+            margin: 0 4px;
+            &:first-child{
+                margin-left: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            &.alert{
+                background-color: $color-alert;
+                color: white;
+            }
+            &.weak{
+                border: 1px solid $color-border;
+                color: $color-text-weak;
+            }
+            &.primary{
+                background-color: $color-primary;
+                color: white;
+            }
+        }
+    }
+}

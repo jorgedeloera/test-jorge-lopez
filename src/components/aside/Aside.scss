@@ -1,0 +1,48 @@
+@import '../../styles/colors';
+@import '../../styles/accessories';
+
+.aside{
+    background-color: white;
+    box-shadow: 2px 0px 24px rgba(0, 0, 0, 0.22);
+    .header{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: $border;
+        height: 45px;
+        padding: 1em;
+        .title{
+            display: flex;
+            align-items: center;
+            h1{
+                margin: 0;
+                font-size: 1.5em;
+                font-weight: normal;
+            }
+            .notifications{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 22px;
+                height: 16px;
+                border-radius: 16px;
+                background-color: $color-alert;
+                color: white;
+                margin: 0 0.5em;
+            }
+        }
+        .filter{
+        }
+    }
+    .search{
+        display: flex;
+        padding: 1em;
+        border-bottom: $border;
+        .input{
+            flex-grow: 1;
+            border: none;
+            border-radius: $button-border-radius;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
+            padding: 0.5em;
+        }
+    }
+}
