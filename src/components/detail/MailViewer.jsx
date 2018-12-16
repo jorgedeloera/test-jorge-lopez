@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MailViewer = () => (
+const MailViewer = ({ data }) => (
     <div className="mail-viewer">
         <div className="content">
-            <p>Text here</p>
+            <p>{data.body}</p>
         </div>
         <div className="footer">
             <div></div>

@@ -20,7 +20,7 @@ class Detail extends Component {
                         <button className="button primary">Mark as unread</button>
                     </div>
                 </div>
-                <MailContainer/>
+                <MailContainer data={this.props.mailDetail}/>
             </div>
         )
     }

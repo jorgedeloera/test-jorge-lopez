@@ -4,10 +4,10 @@ import './MailContainer.scss'
 
 import MailViewer from './MailViewer'
 
-const MailContainer = () => (
+const MailContainer = ({ data }) => (
     <div className="mail-container">
         <div className="title">
-            <h2>Croswell</h2>
+            <h2>{data.from}</h2>
         </div>
         <div className="tags">
             <div className="name">
@@ -15,12 +15,11 @@ const MailContainer = () => (
             </div>
             <div className="list">
                 <ul>
-                    <li>inbox</li>
-                    <li>business</li>
+                    <li>{data.tag}</li>
                 </ul>
             </div>
         </div>
-        <MailViewer/>
+        <MailViewer data={data}/>
     </div>
 )
 

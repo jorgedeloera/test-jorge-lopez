@@ -1,6 +1,7 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -38,6 +39,9 @@ module.exports = {
         }),
         new ExtractTextPlugin({
             filename: 'styles.css'
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: './public/mail-data.json' }
+        ])
     ]
 }
