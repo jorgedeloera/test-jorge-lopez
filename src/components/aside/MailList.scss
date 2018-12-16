@@ -5,17 +5,54 @@
         list-style: none;
         .item{
             display: block;
+            &.animate{
+                .mail-item.new{
+                    animation: new-item 400ms backwards ease-in-out;
+                    @keyframes new-item {
+                        0%{
+                            opacity: 0;
+                            transform: translateX(-100%);
+                        }
+                        50%{
+                            opacity: 0.3;
+                        }
+                        100%{
+                            opacity: 1;
+                            transform: none;
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    .mail-item.new{
+                        animation-delay: 150ms;
+                    } 
+                }
+                &:nth-child(1){
+                    .mail-item.new{
+                        animation-delay: 250ms;
+                    } 
+                }
+            }
         }
         .mail-item{
             display: flex;
             justify-content: space-between;
             border-bottom: $border;
             padding: 1em;
+            cursor: pointer;
             &.new{
                 background-color: $color-background-active;
                 border-left: 3px solid $color-primary;
                 .mail-content .title{
                     color: $color-primary;
+                }
+            }
+            &.active{
+                background-color: $color-primary;
+                color: white;
+                border: none;
+                svg path{
+                    fill: rgba($color: #FFFFFF, $alpha: 0.5);
                 }
             }
             .mail-content{
@@ -30,6 +67,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                align-items: flex-end;
+                .icon{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

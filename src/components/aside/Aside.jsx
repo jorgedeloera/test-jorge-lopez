@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './Aside.scss'
 
 import MailList from './MailList'
+import SearchIcon from '../common/SearchIcon'
 
 class Aside extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Aside extends Component {
 
         this.handleChangeInputSearch = this.handleChangeInputSearch.bind(this)
     }
-    handleChangeInputSearch(evt){
+    handleChangeInputSearch(evt) {
         let inputSearch = evt.target.value
 
         this.setState({
@@ -22,18 +23,23 @@ class Aside extends Component {
     }
     render() {
         let notificationsCount = this.props.mailData.filter(i => i.isReaded == false).length
-        let mailData = this.props.mailData.filter(i => i.from.search(this.state.inputSearch) == 0)
+        let orderedData = this.props.mailData.sort((a, b) => b.id - a.id)
+        let mailData = orderedData.filter(i => i.from.search(this.state.inputSearch) == 0)
         return (
             <aside className="aside">
                 <div className="header">
                     <div className="title">
                         <h1>{this.props.listType.name}</h1>
-                        <span className="notifications">{notificationsCount}</span>
+                        {
+                            (notificationsCount > 0) ?
+                            <span className="notifications">{notificationsCount}</span>
+                            : null
+                        }
                     </div>
                     <div className="filter">
                         <select onChange={this.props.onFilterChange}>
                             {
-                                this.props.sectionList.map( i => (
+                                this.props.sectionList.map(i => (
                                     <option value={i.id} key={i.id}>{i.name}</option>
                                 ))
                             }
@@ -41,12 +47,17 @@ class Aside extends Component {
                     </div>
                 </div>
                 <div className="search">
-                    <input className="input" type="search" placeholder="Search" onChange={this.handleChangeInputSearch} value={this.state.inputSearch}/>
+                    <div className="input">
+                        <input type="search" placeholder="Search" onChange={this.handleChangeInputSearch} value={this.state.inputSearch} />
+                        <span className="icon">
+                            <SearchIcon/>
+                        </span>
+                    </div>
                 </div>
-                <MailList list={mailData} onOpenMail={this.props.onOpenMail}/>
+                <MailList list={mailData} onOpenMail={this.props.onOpenMail} itemActive={this.props.itemActive} />
             </aside>
         )
     }
 }
- 
+
 export default Aside

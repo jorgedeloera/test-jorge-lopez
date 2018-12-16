@@ -2,6 +2,19 @@
 @import '../../styles/accessories';
 
 .detail{
+    &.animate{
+        animation: landing-detail 350ms ease;
+        @keyframes landing-detail {
+            from{
+                opacity: 0;
+                transform: translateX(10%);
+            }
+            to{
+                opacity: 1;
+                transform: none;
+            }
+        }
+    }
     .header{
         display: flex;
         justify-content: space-between;

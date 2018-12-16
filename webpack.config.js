@@ -41,7 +41,8 @@ module.exports = {
             filename: 'styles.css'
         }),
         new CopyWebpackPlugin([
-            { from: './public/mail-data.json' }
+            { from: './public/mail-data.json' },
+            { from: './public/new-mails.json' }
         ])
     ]
 }
