@@ -51,6 +51,9 @@
                 background-color: $color-primary;
                 color: white;
                 border: none;
+                .mail-content .title{
+                    color: white;
+                }
                 svg path{
                     fill: rgba($color: #FFFFFF, $alpha: 0.5);
                 }
